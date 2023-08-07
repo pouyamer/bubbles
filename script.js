@@ -9,12 +9,6 @@ const setCssVariable = (
   element.style.setProperty(variableName, value)
 }
 
-const audioContext = new AudioContext()
-const audioEl = document.querySelector(".audio")
-const popTrack = audioContext.createMediaElementSource(audioEl)
-popTrack.connect(audioContext.destination)
-
-const hueEl = document.querySelector("span.hue")
 const canvas = document.querySelector(".canvas")
 const ctx = canvas.getContext("2d")
 const size = { width: innerWidth, height: innerHeight }
@@ -42,10 +36,10 @@ class Color {
 let hue = Math.random() * 361
 
 // how much Hue value of Bubbles Randomize (it adds to a random value from 0 to the Value you choose)
-const hueDeviation = 90
+const hueDeviation = 45
 const hueIncreaseDecreaseAmountWhenChange = 5
 
-const bubbleAlphaValue = 0.5
+const bubbleAlphaValue = 0.7
 let bubbleSaturationValue = 100
 const bubbleSaturationIncreaseDecreaseAmountWhenChange = 5
 
@@ -141,8 +135,6 @@ canvas.addEventListener("mousemove", e => {
     .forEach(bubble => {
       bubble.x = Math.random() * size.width
       bubble.y = Math.random() * size.height
-      audioEl.load()
-      audioEl.play()
     })
 
   // change pointer location
